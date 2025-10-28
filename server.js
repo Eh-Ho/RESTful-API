@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const config = require('./modules/config');
+global.config = require('./modules/config');
 
 
 const app = express();
