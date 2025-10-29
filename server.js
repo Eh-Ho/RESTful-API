@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 global.config = require('./modules/config');
 
 //connecting database
-const dbName = 'API_project'
+const dbName = 'API_project';
 mongoose.connect(`mongodb://127.0.0.1:27017/${dbName}`);
 mongoose.Promise = global.Promise;
 
