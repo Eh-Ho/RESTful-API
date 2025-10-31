@@ -4,7 +4,7 @@ const webRouter = express.Router();
 
 
 webRouter.route('/').get((req,res)=>{
-    res.json({content:'test'})
+    res.json({message:'web router'})
 })
 
 

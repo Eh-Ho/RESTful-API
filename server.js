@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const webRouter = require('./routes/web')
+const APIRouter = require('./routes/api/index')
 const mongoose = require('mongoose');
 global.config = require('./modules/config');
 
@@ -24,7 +25,9 @@ app.use(bodyParser.urlencoded({extended  : false}));
 
 app.use(bodyParser.json({type : 'application/json'}));
 
-app.use('/', webRouter)
+// routers
+app.use('/', webRouter);
+app.use('/api', APIRouter);
 
 
 //server running
