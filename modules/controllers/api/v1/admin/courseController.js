@@ -2,7 +2,9 @@ const Controller = require('../../../controller');
 
 
 module.exports = new class CourseController extends Controller{
+
     index(req, res){
+        console.log(this.model.Course.find({}).exec());
         res.json({message: 'AdminCourseController index method'});
     }
 

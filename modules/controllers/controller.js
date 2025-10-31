@@ -5,9 +5,6 @@ const Episode = require(`${config.path.models}/Episode`);
 
 module.exports = class Controller{
     constructor(){
-        this.courseModel = Course;
-        this.userModel = User;
-        this.commentModel = Comment;
-        this.episodeModel = Episode;
+        this.model = {Course, User, Comment, Episode};
     }
 };
