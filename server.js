@@ -6,8 +6,7 @@ const APIRouter = require('./modules/routes/api/index');
 const mongoose = require('mongoose');
 
 //connecting database
-const dbName = 'API_project';
-mongoose.connect(`mongodb://127.0.0.1:27017/${dbName}`);
+mongoose.connect(`mongodb://127.0.0.1:27017/${config.database}`);
 mongoose.Promise = global.Promise;
 
 
