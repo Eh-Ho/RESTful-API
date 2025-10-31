@@ -6,9 +6,11 @@ const APIRouter = require('./modules/routes/api/index');
 const mongoose = require('mongoose');
 
 //connecting database
-mongoose.connect(`mongodb://127.0.0.1:27017/${config.database}`);
-mongoose.Promise = global.Promise;
-
+const mongoURI = `mongodb://${config.database.username}:${config.database.password}@${config.database.host}/${config.database.databaseName}?authSource=${config.database.authSource}`;
+console.log(mongoURI);
+mongoose.connect(mongoURI)
+  .then(() => console.log('MongoDB connected successfully.'))
+  .catch(err => console.error('MongoDB connection error:', err));
 
 
 
