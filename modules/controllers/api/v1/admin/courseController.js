@@ -6,6 +6,10 @@ module.exports = new class CourseController {
         res.json({message: 'AdminCourseController index method'});
     }
 
+    single(req, res){
+        res.json({message: 'AdminCourseController single method'});
+    }
+
     store(req, res){
         res.json({message: 'AdminCourseController store method}'})
     }

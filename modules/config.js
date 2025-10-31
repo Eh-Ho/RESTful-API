@@ -9,4 +9,4 @@ module.exports = {
         controller : path.resolve('./modules/controllers/controller.js'),
         models : path.resolve('./modules/models/')
     }
-}
+};

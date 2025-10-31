@@ -1,9 +1,9 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const webRouter = require('./modules/routes/web')
-const APIRouter = require('./modules/routes/api/index')
-const mongoose = require('mongoose');
 global.config = require('./modules/config');
+const bodyParser = require('body-parser');
+const webRouter = require('./modules/routes/web');
+const APIRouter = require('./modules/routes/api/index');
+const mongoose = require('mongoose');
 
 //connecting database
 const dbName = 'API_project';
