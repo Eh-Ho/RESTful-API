@@ -1,7 +1,7 @@
+const Controller = require('../../../controller');
 
 
-
-module.exports = new class CourseController {
+module.exports = new class CourseController extends Controller{
     index(req, res){
         res.json({message: 'AdminCourseController index method'});
     }
@@ -11,7 +11,7 @@ module.exports = new class CourseController {
     }
 
     store(req, res){
-        res.json({message: 'AdminCourseController store method}'})
+        res.json({message: 'AdminCourseController store method}'});
     }
 
 
