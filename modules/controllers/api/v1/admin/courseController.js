@@ -9,33 +9,47 @@ module.exports = new class CourseController extends Controller{
             res.json(courses);
 
         }catch(err){
-            res.json({err})
+            res.send(err);
         }
         
     }
 
-    single(req, res){
-        res.json({message: 'AdminCourseController single method'});
+    async single(req, res){
+        try{
+            let course = await this.model.Course.findById(req.params.id);
+            res.json(course);
+        }catch (err) {
+            res.send(err);
+        }
     }
 
     async store(req, res){
         try{
             let newCourse = new this.model.Course(req.body);
             res.json(await newCourse.save());
-            
+
         } catch(err) {
-            res.json({err})
+            res.send(err);
         }
     }
 
 
-    update(req, res){
-        res.json({message: 'AdminCourseController update method'});
+    async update(req, res){
+        try {
+            res.json(await this.model.Course.findByIdAndUpdate(req.params.id, req.body, {new : true}));
+        } catch (err) {
+            req.send(err);
+        }
+        
     }
 
 
-    destroy(req, res){
-        res.json({message: 'AdminCourseController destroy method'});
+    async destroy(req, res){
+        try{
+            res.json(await this.model.Course.findByIdAndDelete(req.body.id));
+        } catch(err) {
+            res.send(err);
+        }
     }
 
 };

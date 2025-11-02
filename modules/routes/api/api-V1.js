@@ -22,7 +22,7 @@ router.route('/admin/courses').get(AdminCourseController.index.bind(AdminCourseC
 router.route('/admin/courses/:id').get(AdminCourseController.single.bind(AdminCourseController));
 router.route('/admin/courses').post(AdminCourseController.store.bind(AdminCourseController));
 router.route('/admin/courses/:id').put(AdminCourseController.update.bind(AdminCourseController));
-router.route('/admin/courses/:id').delete(AdminCourseController.destroy.bind(AdminCourseController));
+router.route('/admin/courses/').delete(AdminCourseController.destroy.bind(AdminCourseController));
 
 
 
