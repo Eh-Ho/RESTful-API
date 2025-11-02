@@ -3,17 +3,29 @@ const Controller = require('../../../controller');
 
 module.exports = new class CourseController extends Controller{
 
-    index(req, res){
-        console.log(this.model.Course.find({}).exec());
-        res.json({message: 'AdminCourseController index method'});
+    async index(req, res){
+        try{
+            let courses = await this.model.Course.find({});
+            res.json(courses);
+
+        }catch(err){
+            res.json({err})
+        }
+        
     }
 
     single(req, res){
         res.json({message: 'AdminCourseController single method'});
     }
 
-    store(req, res){
-        res.json({message: 'AdminCourseController store method}'});
+    async store(req, res){
+        try{
+            let newCourse = new this.model.Course(req.body);
+            res.json(await newCourse.save());
+            
+        } catch(err) {
+            res.json({err})
+        }
     }
 
 

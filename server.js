@@ -7,7 +7,6 @@ const mongoose = require('mongoose');
 
 //connecting database
 const mongoURI = `mongodb://${config.database.username}:${config.database.password}@${config.database.host}/${config.database.databaseName}?authSource=${config.database.authSource}`;
-console.log(mongoURI);
 mongoose.connect(mongoURI)
   .then(() => console.log('MongoDB connected successfully.'))
   .catch(err => console.error('MongoDB connection error:', err));
