@@ -5,6 +5,7 @@ const router = express.Router();
 
 // public controllers
 const HomeCourseController = require(`${config.path.controllers.api}/v1/homeController`);
+const CourseController = require(`${config.path.controllers.api}/v1/courseController`);
 
 // admin controllers
 const AdminCourseController = require(`${config.path.controllers.api}/v1/admin/courseController`);
@@ -13,6 +14,9 @@ const AdminCourseController = require(`${config.path.controllers.api}/v1/admin/c
 
 // public routes
 router.route('/').get(HomeCourseController.index);
+router.route('/courses').get(CourseController.index.bind(CourseController));
+router.route('/courses/:id').get(CourseController.single.bind(CourseController));
+
 
 
 

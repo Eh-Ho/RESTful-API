@@ -1,7 +1,7 @@
-const Controller = require('../../../controller');
+const Controller = require(`${config.path.controller}`);
 
 
-module.exports = new class CourseController extends Controller{
+module.exports = new class AdminCourseController extends Controller{
 
     async index(req, res){
         try{

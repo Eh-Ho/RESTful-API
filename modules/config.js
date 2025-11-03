@@ -14,6 +14,7 @@ module.exports = {
             api : path.resolve('./modules/controllers/api')
         },
         controller : path.resolve('./modules/controllers/controller.js'),
-        models : path.resolve('./modules/models')
+        models : path.resolve('./modules/models'),
+        transforms : path.resolve('./modules/transforms')
     }
 };
