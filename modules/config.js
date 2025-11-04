@@ -15,6 +15,7 @@ module.exports = {
         },
         controller : path.resolve('./modules/controllers/controller.js'),
         models : path.resolve('./modules/models'),
-        transforms : path.resolve('./modules/transforms')
+        transforms : path.resolve('./modules/transforms'),
+        validators : path.resolve('./modules/validators')
     }
 };
