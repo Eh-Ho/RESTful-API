@@ -27,7 +27,6 @@ module.exports = new class AdminCourseController extends Controller{
         try{
             let newCourse = new this.model.Course(req.body);
             res.json(await newCourse.save());
-
         } catch(err) {
             res.send(err);
         }
