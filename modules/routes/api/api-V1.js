@@ -11,7 +11,8 @@ const HomeCourseController = require(`${config.path.controllers.api}/v1/homeCont
 const CourseController = require(`${config.path.controllers.api}/v1/courseController`);
 
 // admin controllers
-const AdminCourseController = require(`${config.path.controllers.api}/v1/admin/courseController`);
+const AdminCourseController = require(`${config.path.controllers.api}/v1/admin/adminCourseController`);
+const AdminEpisodeController = require(`${config.path.controllers.api}/v1/admin/adminEpisodeController`);
 
 
 
