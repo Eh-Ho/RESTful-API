@@ -9,7 +9,7 @@ const EpisodeSchema = new Schema({
     videoUrl : {type : String, required : true},
     number : {type : String, required : true},
     viewCount :{type : Number, default : 0},
-    comments : {type :Schema.Types.ObjectId, ref : 'Comment'},
+    comments : [{type :Schema.Types.ObjectId, ref : 'Comment'}],
     commentCount :{type : Number, default : 0}
 },{
     timestamps:{
