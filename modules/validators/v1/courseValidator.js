@@ -1,4 +1,4 @@
-const { body, param, validationResult } = require('express-validator');
+const { body, param } = require('express-validator');
 const Validator  = require(`${config.path.validators}/Validator`);
 
 module.exports = new class CourseValidator extends Validator{
@@ -27,7 +27,6 @@ module.exports = new class CourseValidator extends Validator{
             .escape(),
         body('price')
             .optional()
-            .isNumeric().withMessage('Price must be a number.')
     ];
 
 };
