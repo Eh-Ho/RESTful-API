@@ -25,16 +25,18 @@ router.route('/courses/:id').get(CourseController.single.bind(CourseController))
 
 
 // admin routes
-router.route('/admin/courses')
+const adminRouter = express.Router();
+
+adminRouter.route('/courses')
 .get(AdminCourseController.index.bind(AdminCourseController))
 .post(CourseValidator.validateStore, CourseValidator.handleValidationErrors, AdminCourseController.store.bind(AdminCourseController));
 
-router.route('/admin/courses/:id')
+adminRouter.route('/courses/:id')
 .get(AdminCourseController.single.bind(AdminCourseController))
 .put(CourseValidator.validateUpdate, CourseValidator.handleValidationErrors, AdminCourseController.update.bind(AdminCourseController));
 
-router.route('/admin/courses/').delete(AdminCourseController.destroy.bind(AdminCourseController));
+adminRouter.route('/courses/').delete(AdminCourseController.destroy.bind(AdminCourseController));
 
-
+router.use('/admin', adminRouter);
 
 module.exports = router;
