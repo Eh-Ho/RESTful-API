@@ -15,11 +15,10 @@ const AdminCourseController = require(`${config.path.controllers.api}/v1/admin/a
 const AdminEpisodeController = require(`${config.path.controllers.api}/v1/admin/adminEpisodeController`);
 
 
-
 // public routes
 router.route('/').get(HomeCourseController.index);
 router.route('/courses').get(CourseController.index.bind(CourseController));
-router.route('/courses/:id').get(CourseController.single.bind(CourseController));
+router.route('/courses/:courseId').get(CourseController.single.bind(CourseController));
 
 
 
@@ -32,20 +31,24 @@ const adminRouter = express.Router();
 adminRouter.route('/courses')
 .get(AdminCourseController.index.bind(AdminCourseController))
 .post(CourseValidator.validateStore, CourseValidator.handleValidationErrors, AdminCourseController.store.bind(AdminCourseController));
-adminRouter.route('/courses/:id')
+
+adminRouter.route('/courses/:courseId')
 .get(AdminCourseController.single.bind(AdminCourseController))
-.put(CourseValidator.validateUpdate, CourseValidator.handleValidationErrors, AdminCourseController.update.bind(AdminCourseController));
-adminRouter.route('/courses/').delete(AdminCourseController.destroy.bind(AdminCourseController));
+.put(CourseValidator.validateUpdate, CourseValidator.handleValidationErrors, AdminCourseController.update.bind(AdminCourseController))
+.delete(AdminCourseController.destroy.bind(AdminCourseController));
 
 // episodes
 adminRouter.route('/episodes')
-.get(AdminEpisodeController.index.bind(AdminEpisodeController))
-.post(EpisodeValidator.validateStore, EpisodeValidator.handleValidationErrors, AdminEpisodeController.store.bind(AdminEpisodeController));
-adminRouter.route('/episodes/:id')
-.get(AdminEpisodeController.single.bind(AdminEpisodeController))
-.put(EpisodeValidator.validateUpdate, EpisodeValidator.handleValidationErrors, AdminEpisodeController.update.bind(AdminEpisodeController));
-adminRouter.route('/episodes/').delete(AdminEpisodeController.destroy.bind(AdminEpisodeController));
+.get(AdminEpisodeController.index.bind(AdminEpisodeController));
 
+adminRouter.route('/courses/:courseId/episodes')
+.get(AdminEpisodeController.courseIndex.bind(AdminEpisodeController))
+.post(EpisodeValidator.validateStore, EpisodeValidator.handleValidationErrors, AdminEpisodeController.store.bind(AdminEpisodeController));
+
+adminRouter.route('/episodes/:episodeId')
+.get(AdminEpisodeController.single.bind(AdminEpisodeController))
+.put(EpisodeValidator.validateUpdate, EpisodeValidator.handleValidationErrors, AdminEpisodeController.update.bind(AdminEpisodeController))
+.delete(AdminEpisodeController.destroy.bind(AdminEpisodeController));
 
 
 
