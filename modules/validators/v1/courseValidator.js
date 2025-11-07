@@ -17,7 +17,7 @@ module.exports = new class CourseValidator extends Validator{
     ];
 
     validateUpdate = [
-        param('id')
+        param('courseId')
             .isMongoId().withMessage('Invalid Course ID format.'),
         
         body('title')

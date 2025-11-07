@@ -25,7 +25,7 @@ module.exports = new class AdminEpisodeController extends Controller {
 
     async store (req, res) {
         try{
-            let newEpisode = new this.model.Episode(req.body);
+            let newEpisode = new this.model.Episode({...req.body, course : req.params.courseId});
             await newEpisode.save();
             await this.model.Course.findByIdAndUpdate(req.params.courseId, {$addToSet : {episodes : newEpisode._id}}, {new : true});
             res.status(200).json(newEpisode);

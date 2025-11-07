@@ -5,7 +5,7 @@ const Validator  = require(`${config.path.validators}/Validator`);
 module.exports = new class EpisodeValidator extends Validator {
 
     validateStore = [
-        param('id').isMongoId().withMessage('Invalid Course ID Format'),
+        param('courseId').isMongoId().withMessage('Invalid Course ID Format'),
         body('title').notEmpty().withMessage('Title is required.').trim().escape(),
         body('body').notEmpty().withMessage('Body is required.').trim().escape(),
         body('videoUrl').notEmpty().withMessage('VideoUrl is required.').trim(),
@@ -14,7 +14,7 @@ module.exports = new class EpisodeValidator extends Validator {
 
 
     validateUpdate = [
-        param('id').isMongoId().withMessage('Invalid Episode ID format.'),
+        param('episodeId').isMongoId().withMessage('Invalid Episode ID format.'),
         body('title').notEmpty().withMessage('Title is required.').trim().escape()
     ];
 
