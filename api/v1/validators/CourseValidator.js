@@ -1,7 +1,8 @@
+const pathResolver = require('../../utilities/pathResolver');
 const { body, param } = require('express-validator');
-const Validator  = require(`${config.path.validators}/Validator`);
+const BaseValidator  = require(`${pathResolver('v1').validators}/BaseValidator`);
 
-module.exports = new class CourseValidator extends Validator{
+module.exports = new class CourseValidator extends BaseValidator{
 
     validateStore = [
         body('title')

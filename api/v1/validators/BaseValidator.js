@@ -1,6 +1,6 @@
 const {validationResult} = require('express-validator');
 
-module.exports = class Validator {
+module.exports = class BaseValidator {
 
     handleValidationErrors = (req, res, next) => {
         const errors = validationResult(req);

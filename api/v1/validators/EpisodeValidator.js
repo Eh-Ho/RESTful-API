@@ -1,8 +1,9 @@
+const pathResolver = require('../../utilities/pathResolver');
 const { body, param } = require('express-validator');
-const Validator  = require(`${config.path.validators}/Validator`);
+const BaseValidator  = require(`${pathResolver('v1').validators}/BaseValidator`);
 
 
-module.exports = new class EpisodeValidator extends Validator {
+module.exports = new class EpisodeValidator extends BaseValidator {
 
     validateStore = [
         param('courseId').isMongoId().withMessage('Invalid Course ID Format'),

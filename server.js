@@ -1,8 +1,7 @@
 const express = require('express');
-global.config = require('./modules/config');
+global.config = require('./api/config');
 const bodyParser = require('body-parser');
-const webRouter = require('./modules/routes/web');
-const APIRouter = require('./modules/routes/api/index');
+const APIRouter = require('./api/v1/routes');
 const mongoose = require('mongoose');
 
 //connecting database
@@ -26,8 +25,7 @@ app.use(bodyParser.urlencoded({extended  : false}));
 app.use(bodyParser.json({type : 'application/json'}));
 
 // routers
-app.use('/', webRouter);
-app.use('/api', APIRouter);
+app.use('/', APIRouter);
 
 
 //server running
