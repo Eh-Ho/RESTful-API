@@ -10,7 +10,7 @@ module.exports = new class CourseService extends BaseService {
             await newCourse.save();
             return newCourse;
         } catch(err) {
-            return err;
+            throw err;
         };
     };
 
@@ -19,7 +19,7 @@ module.exports = new class CourseService extends BaseService {
             let course = await this.model.Course.findByIdAndUpdate(courseId, courseBody, {new : true});
             return course;
         } catch (err) {
-            return err;
+            throw err;
         }
     };
 
@@ -28,7 +28,7 @@ module.exports = new class CourseService extends BaseService {
             let course = await this.model.Course.findByIdAndDelete(courseId);
             return course
         } catch(err) {
-            return err;
+            throw err;
         };
     };
 
@@ -37,7 +37,7 @@ module.exports = new class CourseService extends BaseService {
             let course = await this.model.Course.findById(courseId);
             return CourseTransform.transform(course);
         }catch (err) {
-            return err;
+            throw err;
         };
     };
 
@@ -46,7 +46,7 @@ module.exports = new class CourseService extends BaseService {
             let courses = await this.model.Course.find({});
             return CourseTransform.transformCollection(courses);
         }catch(err){
-            return err
+            throw err;
         };
     };
 

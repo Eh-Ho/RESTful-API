@@ -11,7 +11,7 @@ module.exports = new class EpisodeService extends BaseService {
             return newEpisode;
 
         }catch (err) {
-            res.status(500).send(err);
+            throw err;
         };
     };
 
@@ -21,7 +21,7 @@ module.exports = new class EpisodeService extends BaseService {
             return episode;
 
         }catch (err) {
-            return err;
+            throw err;
         };
     };
 
@@ -33,7 +33,7 @@ module.exports = new class EpisodeService extends BaseService {
             return course
 
         }catch (err) {
-            return err;
+            throw err;
         };
     };
 
@@ -43,7 +43,7 @@ module.exports = new class EpisodeService extends BaseService {
             return episode;
 
         }catch (err) {
-            return err;
+            throw err;
         };
     };
 
@@ -52,7 +52,7 @@ module.exports = new class EpisodeService extends BaseService {
             let episodes = await this.model.Course.findById(courseId).populate('episodes');
             return episodes
         }catch (err) {
-            return err;
+            throw err;
         };
     }
 
@@ -61,7 +61,7 @@ module.exports = new class EpisodeService extends BaseService {
             let episodes = await this.model.Episode.find({});
             return episodes;
         }catch (err) {
-            return err;
+            throw err;
         };
     };
 
