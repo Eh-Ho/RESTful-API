@@ -6,7 +6,7 @@ const pathResolver = (version) => {
         controllers : path.resolve(`./api/${version}/controllers`),
         models : path.resolve(`./api/${version}/models`),
         transforms : path.resolve(`./api/${version}/transforms`),
-        validators : path.resolve(`./api/${version}/validators`)
+        validators : path.resolve(`./api/${version}/validators`),
     };
 };
 

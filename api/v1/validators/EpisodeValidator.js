@@ -9,14 +9,17 @@ module.exports = new class EpisodeValidator extends BaseValidator {
         param('courseId').isMongoId().withMessage('Invalid Course ID Format'),
         body('title').notEmpty().withMessage('Title is required.').trim().escape(),
         body('body').notEmpty().withMessage('Body is required.').trim().escape(),
-        body('videoUrl').notEmpty().withMessage('VideoUrl is required.').trim(),
-        body('number').notEmpty().withMessage('Number is required.').isNumeric().withMessage('Price must be a number.')
+        body('videoUrl').notEmpty().withMessage('VideoUrl is required.').isURL().withMessage('Must be a valid URL.').trim(),
+        body('number').notEmpty().withMessage('Number is required.').isNumeric().withMessage('Number must be a number.')
     ];
 
 
     validateUpdate = [
         param('episodeId').isMongoId().withMessage('Invalid Episode ID format.'),
-        body('title').notEmpty().withMessage('Title is required.').trim().escape()
+        body('title').notEmpty().withMessage('Title is required.').trim().escape(),
+        body('body').optional().notEmpty().withMessage('Body cannot be empty.').trim().escape(),
+        body('videoUrl').optional().isURL().withMessage('Must be a valid URL.').trim(),
+        body('number').optional().isNumeric().withMessage('Number must be a number.')
     ];
 
 
