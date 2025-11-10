@@ -8,6 +8,7 @@ module.exports = {
         username : 'test_user',
         password : 'test_password',
         host : '127.0.0.1:27017',
+        replicaSet : 'rs0'
     },
     path : pathResolver('v1')
 };

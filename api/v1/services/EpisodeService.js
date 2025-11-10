@@ -1,5 +1,5 @@
 const mongoose  = require('mongoose');
-const AppError = require('../../utilities/ErrorHandler');
+const AppError = require('../../utilities/AppError');
 const { StatusCodes } = require('http-status-codes');
 const BaseService = require(`${config.path.services}/BaseService`);
 

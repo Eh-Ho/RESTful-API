@@ -1,7 +1,7 @@
 const BaseService = require(`${config.path.services}/BaseService`);
 const CourseTransform = require(`${config.path.transforms}/CourseTransform`);
 const {StatusCodes} = require('http-status-codes');
-const AppError = require('../../utilities/ErrorHandler');
+const AppError = require('../../utilities/AppError');
 
 module.exports = new class CourseService extends BaseService {
     
@@ -39,7 +39,7 @@ module.exports = new class CourseService extends BaseService {
         try{
             let course = await this.model.Course.findById(courseId);
             if (!course) throw new AppError('Course Not Found', StatusCodes.NOT_FOUND);
-            return CourseTransform.transform(course);
+            return course;
         }catch (err) {
             throw err;
         };
@@ -48,7 +48,7 @@ module.exports = new class CourseService extends BaseService {
     async getAllCourses () {
         try{
             let courses = await this.model.Course.find({});
-            return CourseTransform.transformCollection(courses);
+            return courses;
         }catch(err){
             throw err;
         };
