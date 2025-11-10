@@ -1,5 +1,7 @@
 const { StatusCodes, ReasonPhrases } = require('http-status-codes');
-const CourseService = require('../../services/CourseService');
+const pathResolver = require('../../../utilities/pathResolver');
+const CourseService = require(`${pathResolver('v1').services}/CourseService`);
+const CourseDTO = require(`${pathResolver('v1').dtos}/CourseDTO`);
 
 module.exports = new class AdminCourseController {
 

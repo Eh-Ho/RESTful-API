@@ -1,5 +1,7 @@
 const { StatusCodes, ReasonPhrases } = require('http-status-codes');
-const EpisodeService = require('../../services/EpisodeService');
+const pathResolver = require('../../../utilities/pathResolver');
+const EpisodeService = require(`${pathResolver('v1').services}/EpisodeService`);
+const EpisodeDTO = require(`${pathResolver('v1').dtos}/EpisodeDTO`);
 
 module.exports = new class AdminEpisodeController  {
 
@@ -12,7 +14,8 @@ module.exports = new class AdminEpisodeController  {
     }
 
     async createEpisode (req, res) {
-        res.status(StatusCodes.OK).json({data : await EpisodeService.createEpisode({...req.body, course : req.params.courseId}, req.params.courseId)})
+        const episodeBody = EpisodeDTO.create(req.body, req.params);
+        res.status(StatusCodes.OK).json({data : await EpisodeService.createEpisode(episodeBody, req.params.courseId)})
     };
 
     async getEpisode (req, res) {
@@ -20,7 +23,8 @@ module.exports = new class AdminEpisodeController  {
     };
 
     async updateEpisode (req, res) {
-        res.status(StatusCodes.OK).json({data : await EpisodeService.updateEpisode(req.body, req.params.episodeId)});
+        const episodeBody = EpisodeDTO.create(req.body);
+        res.status(StatusCodes.OK).json({data : await EpisodeService.updateEpisode(episodeBody, req.params.episodeId)});
     };
 
     async deleteEpisode (req, res) {
