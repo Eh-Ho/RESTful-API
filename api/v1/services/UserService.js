@@ -1,5 +1,4 @@
-const pathResolver = require('../../utilities/pathResolver');
-const BaseService = require(`${pathResolver('v1').services}/BaseService`);
+const BaseService = require(`${config.path.services}/BaseService`);
 
 module.exports = new class UserService extends BaseService {
     

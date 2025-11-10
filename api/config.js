@@ -1,3 +1,5 @@
+const pathResolver = require('./utilities/pathResolver');
+
 module.exports = {
     port : 8000,
     database : {
@@ -7,4 +9,5 @@ module.exports = {
         password : 'test_password',
         host : '127.0.0.1:27017',
     },
+    path : pathResolver('v1')
 };

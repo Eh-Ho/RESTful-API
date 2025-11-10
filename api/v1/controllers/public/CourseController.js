@@ -1,5 +1,4 @@
-const pathResolver = require('../../../utilities/pathResolver');
-const CourseService = require(`${pathResolver('v1').services}/CourseService`);
+const CourseService = require(`${config.path.services}/CourseService`);
 const { StatusCodes, ReasonPhrases } = require('http-status-codes');
 
 

@@ -1,8 +1,8 @@
 const mongoose  = require('mongoose');
-const pathResolver = require('../../utilities/pathResolver');
 const AppError = require('../../utilities/ErrorHandler');
 const { StatusCodes } = require('http-status-codes');
-const BaseService = require(`${pathResolver('v1').services}/BaseService`);
+const BaseService = require(`${config.path.services}/BaseService`);
+
 module.exports = new class EpisodeService extends BaseService {
     
     async createEpisode (episodeBody, courseId) {

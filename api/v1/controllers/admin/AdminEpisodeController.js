@@ -1,7 +1,6 @@
 const { StatusCodes, ReasonPhrases } = require('http-status-codes');
-const pathResolver = require('../../../utilities/pathResolver');
-const EpisodeService = require(`${pathResolver('v1').services}/EpisodeService`);
-const EpisodeDTO = require(`${pathResolver('v1').dtos}/EpisodeDTO`);
+const EpisodeService = require(`${config.path.services}/EpisodeService`);
+const EpisodeDTO = require(`${config.path.dtos}/EpisodeDTO`);
 
 module.exports = new class AdminEpisodeController  {
 

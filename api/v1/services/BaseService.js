@@ -1,9 +1,7 @@
-const pathResolver = require('../../utilities/pathResolver');
-
-const Course = require(`${pathResolver('v1').models}/Course`);
-const User = require(`${pathResolver('v1').models}/User`);
-const Comment = require(`${pathResolver('v1').models}/Comment`);
-const Episode = require(`${pathResolver('v1').models}/Episode`);
+const Course = require(`${config.path.models}/Course`);
+const User = require(`${config.path.models}/User`);
+const Comment = require(`${config.path.models}/Comment`);
+const Episode = require(`${config.path.models}/Episode`);
 
 module.exports = class BaseService {
     constructor () {

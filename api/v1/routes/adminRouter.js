@@ -1,9 +1,8 @@
 const express = require('express');
 const adminRouter = express.Router();
-const pathResolver = require('../../utilities/pathResolver')
 
-const {AdminCourseController, AdminEpisodeController} = require(`${pathResolver('v1').controllers}`);
-const {EpisodeValidator, CourseValidator} = require(`${pathResolver('v1').validators}`);
+const {AdminCourseController, AdminEpisodeController} = require(`${config.path.controllers}`);
+const {EpisodeValidator, CourseValidator} = require(`${config.path.validators}`);
 
 
 // courses

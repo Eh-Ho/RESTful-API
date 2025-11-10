@@ -1,6 +1,5 @@
-const pathResolver = require('../../utilities/pathResolver');
 const { body, param } = require('express-validator');
-const BaseValidator  = require(`${pathResolver('v1').validators}/BaseValidator`);
+const BaseValidator  = require(`${config.path.validators}/BaseValidator`);
 
 
 module.exports = new class EpisodeValidator extends BaseValidator {
