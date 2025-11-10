@@ -23,7 +23,7 @@ module.exports = new class AdminEpisodeController  {
     };
 
     async updateEpisode (req, res) {
-        const episodeBody = EpisodeDTO.create(req.body);
+        const episodeBody = EpisodeDTO.update(req.body);
         res.status(StatusCodes.OK).json({data : await EpisodeService.updateEpisode(episodeBody, req.params.episodeId)});
     };
 

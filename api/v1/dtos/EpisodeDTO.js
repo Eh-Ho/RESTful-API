@@ -11,14 +11,14 @@ module.exports = new class EpisodeDTO {
     };
 
     update (reqBody) {
-        const updateData = {};
+        const updatedFields = {};
 
         const allowedFields = ['title', 'body', 'videoUrl', 'number'];
 
         allowedFields.forEach(field => {
             
             if (reqBody[field] !== undefined) {
-                updateData[field] = reqBody[field];
+                updatedFields[field] = reqBody[field];
             }
         });
         

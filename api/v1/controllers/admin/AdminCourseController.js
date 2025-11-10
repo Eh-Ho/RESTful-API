@@ -14,12 +14,14 @@ module.exports = new class AdminCourseController {
     };
 
     async createCourse(req, res){
-        res.status(StatusCodes.OK).json({data : await CourseService.createCourse(req.body)});
+        const courseBody = CourseDTO.create(req.body);
+        res.status(StatusCodes.OK).json({data : await CourseService.createCourse(courseBody)});
     };
 
 
     async updateCourse(req, res){
-        res.status(StatusCodes.OK).json({data : await CourseService.updateCourse(req.body, req.params.courseId)});
+        const courseBody = CourseDTO.update(req.body);
+        res.status(StatusCodes.OK).json({data : await CourseService.updateCourse(courseBody, req.params.courseId)});
     };
 
 
