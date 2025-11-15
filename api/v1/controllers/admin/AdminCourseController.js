@@ -8,6 +8,11 @@ module.exports = new class AdminCourseController {
         res.status(StatusCodes.OK).json({data : await CourseService.getAllCourses()}); 
     };
 
+
+    async getUserCourses () {
+
+    };
+
     async getCourse(req, res){
         res.status(StatusCodes.OK).json({data : await CourseService.getCourse(req.params.courseId)});
     };
