@@ -7,8 +7,10 @@ const UserSchema = new Schema(
         name : {type : String, required : true},
         email : {type : String, required : true, unique : true},
         password : {type : String, required : true},
-        courses : [{type : Schema.Types.ObjectId, ref : 'Course'}]
-    },{
+        courses : [{type : Schema.Types.ObjectId, ref : 'Course'}],
+        role : {type : String, required : true}
+    },
+    {
         timestamps:{
             createdAt: 'created_at', 
             updatedAt: 'updated_at'
