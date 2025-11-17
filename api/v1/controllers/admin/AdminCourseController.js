@@ -10,7 +10,7 @@ module.exports = new class AdminCourseController {
 
 
     async getUserCourses () {
-
+        res.status(StatusCodes.OK).json({data : await CourseService.getUserCourses(req.params.userId)});
     };
 
     async getCourse(req, res){

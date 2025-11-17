@@ -1,7 +1,7 @@
 const BaseService = require(`${config.path.services}/BaseService`);
 const CourseTransform = require(`${config.path.transforms}/CourseTransform`);
 const {StatusCodes} = require('http-status-codes');
-const AppError = require('../../utilities/AppError');
+const AppError = require(`${config.path.middlewares}/errorHandler`);
 
 module.exports = new class CourseService extends BaseService {
     
@@ -44,6 +44,16 @@ module.exports = new class CourseService extends BaseService {
             throw err;
         };
     };
+
+    async getUserCourses (userId) {
+        try{
+            let user = await this.model.User.findById(userId).populate('courses');
+            if(!user) throw new AppError('User Not Found', StatusCodes.NOT_FOUND);
+            return user.courses;
+        }catch (err){
+            throw err;
+        };
+    }
 
     async getAllCourses () {
         try{
