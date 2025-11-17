@@ -1,10 +1,20 @@
 const express = require('express');
-const publicRouter = express.Router();
-const {HomeController, CourseController} = require(`${config.path.controllers}`);
+const userRouter = require('./userRouter');
 
-publicRouter.route('/').get(HomeController.index.bind(HomeController));
-publicRouter.route('/courses').get(CourseController.getAllCourses.bind(CourseController));
-publicRouter.route('/courses/:courseId').get(CourseController.getCourse.bind(CourseController));
+const publicRouter = express.Router();
+const {HomeController} = require(`${config.path.controllers}`);
+
+
+// home
+userRouter.route('/').get(HomeController.index.bind(HomeController));
+
+
+// auth
+userRouter.route('/register').post();
+userRouter.route('/signin').post();
+userRouter.route('/signout').post();
 
 
 module.exports = publicRouter;
+
+
