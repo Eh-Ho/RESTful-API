@@ -5,7 +5,7 @@ const {body, param} = require('express-validator');
 module.exports = new class UserValidator extends BaseValidator {
 
 
-    validateStor = [
+    validateStore = [
         body('name').notEmpty().withMessage('Name is required.').trim().escape(),
         body('email').notEmpty().withMessage('Email is required.').isEmail().withMessage('Must be a Email Address.').trim().normalizeEmail(),
         body('password').notEmpty().withMessage('Password is required').trim().escape(),
@@ -18,4 +18,5 @@ module.exports = new class UserValidator extends BaseValidator {
         body('email').optional().notEmpty().withMessage('Email cannot be empty.').isEmail().withMessage('Must be a Email Address.').trim().normalizeEmail(),
         body('password').optional().notEmpty().withMessage('Password cannot be empty.').trim().escape(),
     ];
+
 }
