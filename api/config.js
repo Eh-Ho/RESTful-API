@@ -10,5 +10,6 @@ module.exports = {
         host : '127.0.0.1:27017',
         replicaSet : 'rs0'
     },
-    path : pathResolver('v1')
+    path : pathResolver('v1'),
+    JWT_SECRET : 'secret'
 };
