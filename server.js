@@ -3,7 +3,6 @@ global.config = require('./api/config');
 const bodyParser = require('body-parser');
 const APIRouter = require('./api/v1/routes');
 const mongoose = require('mongoose');
-const errorHandler = require(`${config.path.middlewares}/errorHandler`);
 //connecting database
 const mongoURI = `mongodb://${config.database.username}:${config.database.password}@${config.database.host}/${config.database.databaseName}?authSource=${config.database.authSource}&replicaSet=${config.database.replicaSet}`;
 mongoose.connect(mongoURI)
@@ -25,7 +24,6 @@ app.use(bodyParser.json({type : 'application/json'}));
 
 // routers
 app.use('/', APIRouter);
-app.use(errorHandler);
 
 
 //server running

@@ -6,6 +6,15 @@ module.exports = (err, req, res, next) => {
         message : err.message
       });
     };
+
+    if (err.code === 11000) {
+      const field = Object.keys(err.keyValue)[0]; 
+      const message = `Duplicate field value: ${field}. Please use another value.`;
+      
+      return res.status(StatusCodes.CONFLICT).json({ 
+          message: message
+      });
+  }
   
     if(err.name === 'CastError'){
       const message = `Invalid value for ${err.path}: ${err.value}`;
