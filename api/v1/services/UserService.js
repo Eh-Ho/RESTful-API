@@ -8,6 +8,11 @@ const {StatusCodes} = require('http-status-codes');
 module.exports = new class UserService extends BaseService {
     
     async createUser(userBody) {
+        try{
+
+        }catch(err){
+            throw err
+        };
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(userBody.password, salt);
 
