@@ -1,8 +1,9 @@
+const { StatusCodes } = require("http-status-codes");
 
 module.exports = new class HomeController {
 
     index(req, res){
-        console.log('HomeController index method');
+        res.status(StatusCodes.OK).json({message : 'home controller index'});
     };
     
 };
