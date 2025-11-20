@@ -9,7 +9,7 @@ module.exports = new class AuthService extends BaseService{
     _generateToken(user) {
         return jwt.sign(
             { userId: user._id, role: user.role }, 
-            config.secret, 
+            config.JWT_SECRET, 
             { expiresIn: '1d' }
         );
     }
