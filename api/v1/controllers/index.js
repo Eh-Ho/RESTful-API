@@ -1,9 +1,14 @@
+
 module.exports = {
-    // public controllers
+    // user controllers
+    CourseController : require('./user/CourseController'),
+
+    //public controllers
     HomeController : require('./public/HomeController'),
-    CourseController : require('./public/CourseController'),
+    AuthController : require('./public/AuthController'),
 
     // admin controllers
     AdminCourseController : require('./admin/AdminCourseController'),
-    AdminEpisodeController : require('./admin/AdminEpisodeController')
+    AdminEpisodeController : require('./admin/AdminEpisodeController'),
+    AdminUserController : require('./admin/AdminUserController')
 }
