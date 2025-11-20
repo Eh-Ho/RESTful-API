@@ -1,5 +1,5 @@
 const mongoose  = require('mongoose');
-const AppError = require('../../utilities/AppError');
+const AppError = require(`${config.path.middlewares}/errorHandler`);
 const { StatusCodes } = require('http-status-codes');
 const BaseService = require(`${config.path.services}/BaseService`);
 
@@ -63,11 +63,11 @@ module.exports = new class EpisodeService extends BaseService {
         };
     };
 
-    async getCourseEpisode (courseId) {
+    async getCourseEpisodes (courseId) {
         try{
             let course = await this.model.Course.findById(courseId).populate('episodes');
             if(!course) throw new AppError('Course Not Found', StatusCodes.NOT_FOUND);
-            return course
+            return course.episodes;
         }catch (err) {
             throw err;
         };

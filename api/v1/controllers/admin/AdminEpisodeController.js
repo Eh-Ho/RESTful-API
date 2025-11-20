@@ -9,7 +9,7 @@ module.exports = new class AdminEpisodeController  {
     };
 
     async getCourseEpisodes (req, res) {
-        res.status(StatusCodes.OK).json({data : await EpisodeService.getCourseEpisode(req.params.courseId)});
+        res.status(StatusCodes.OK).json({data : await EpisodeService.getCourseEpisodes(req.params.courseId)});
     }
 
     async createEpisode (req, res) {
