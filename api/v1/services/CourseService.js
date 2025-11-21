@@ -1,5 +1,4 @@
 const BaseService = require(`${config.path.services}/BaseService`);
-const CourseTransform = require(`${config.path.transforms}/CourseTransform`);
 const {StatusCodes} = require('http-status-codes');
 const AppError = require(`${config.path.middlewares}/errorHandler`);
 
